@@ -41,23 +41,22 @@ function App() {
   }
 
   return (
-    <div>
-
-      <ul data-testid="repository-list">
-        {repositories.map(repository => <li key={repository.id}>
-          {repository.title}
-          <button onClick={() => handleRemoveRepository(repository.id)}>Remover</button>
-        </li>)}
-      </ul>
-
-      <div>
-        <h1>Cadastrar novo projeto</h1>
-        <input type="text" value={repositories.title} placeholder="Titulo do projeto" onChange={e => setTitle(e.target.value)}/>
-        <input type="text" value={repositories.url} placeholder="URL" onChange={e => setUrl(e.target.value)}/>
-        <input type="text" value={repositories.techs} placeholder="Tecnologias utilizadas" onChange={e => setTechs(e.target.value)}/>
-      </div>
-
-      <button onClick={handleAddRepository}>Adicionar</button>
+    <div className='container'>
+      <div className="form">
+      <h1 className='titulo-principal'>Desafio Conceitos ReactJS <span>🚀</span></h1>
+      <h2 className='titulo-projetos'>Seus projetos atuais:</h2>
+        <ul data-testid="repository-list">
+          {repositories.map(repository => <li className="projeto" key={repository.id}>
+            {repository.title}
+            <button className='botao-remover' onClick={() => handleRemoveRepository(repository.id)}>Remover</button>
+          </li>)}
+        </ul>
+        <h1 className='titulo-form'>Adicionar novo projeto:</h1>
+        <input className ='input'type="text" value={repositories.title} placeholder="Titulo do projeto" onChange={e => setTitle(e.target.value)}/>
+        <input className ='input' type="text" value={repositories.url} placeholder="URL" onChange={e => setUrl(e.target.value)}/>
+        <input className ='input' type="text" value={repositories.techs} placeholder="Tecnologias utilizadas" onChange={e => setTechs(e.target.value)}/>
+        <button className='botao-adicionar' onClick={handleAddRepository}>Adicionar</button>
+        </div>
     </div>
   );
 }
